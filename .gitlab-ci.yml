@@ -1,0 +1,16 @@
+image: fafou500/opencv_image2
+
+before_script:
+  - apt-get update
+
+build:
+  stage: build
+  script: make re
+  artifacts:
+    paths:
+      - ridercompanion
+
+test:
+  stage: test
+  script:
+    - ./ridercompanion Detection/video/moto-balade.mp4 noscreen
